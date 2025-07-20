@@ -41,13 +41,14 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'listings',
     'rest_framework',
     'corsheaders',
     'drf_yasg',
-    'listings',
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -83,12 +84,8 @@ WSGI_APPLICATION = 'alx_travel_app.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': env('DB_NAME'),
-        'USER': env('DB_USER'),
-        'PASSWORD': env('DB_PASSWORD'),
-        'HOST': env('DB_HOST'),
-        'PORT': env('DB_PORT'),
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
 
@@ -108,13 +105,13 @@ REST_FRAMEWORK = {
 
 # 4. .env file (place in project root)
 # .env
-SECRET_KEY=your-secret-key
-DEBUG=True
-DB_NAME=alx_travel
-DB_USER=root
-DB_PASSWORD=your-password
-DB_HOST=127.0.0.1
-DB_PORT=3306
+# SECRET_KEY=your-secret-key
+# DEBUG=True
+# DB_NAME=alx_travel
+# DB_USER=root
+# DB_PASSWORD=your-password
+# DB_HOST=127.0.0.1
+# DB_PORT=3306
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
